@@ -280,6 +280,20 @@ p {
         display: block;
     }
 }
+.plates {
+    display: inline-block;
+    background-color: white;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: bold;
+    padding: 1em;
+    border-width: 0.25em;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 1em;
+}
 
 @media only screen and (min-width: 60em) {
 
