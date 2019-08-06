@@ -1,21 +1,21 @@
 function RegistrationCheck() {
     var numberPlates = [];
-    var capePlates = []
-    var stellenboschPLates = []
+    // var capePlates = []
+    // var stellenboschPLates = []
 
 
     function storePlate(plate) {
 
         if (validatePlate(plate)) {
             numberPlates.push(plate);
-            return "Number plate added";
         }
-        return "Invalid registration number";
+        return "Number plate added";
     }
-    // console.log(numberPlates)
+
+
     function validatePlate(plate) {
         let towns = ["CA", "CJ", "CL"];
-
+        var valid = 0;
 
         for (i = 0; i < towns.length; i++) {
 
@@ -32,16 +32,24 @@ function RegistrationCheck() {
         for (var i = 0; i < numberPlates.length; i++) {
             var newReg = numberPlates[i];
             if (newReg.startsWith(loc)) {
-                nenewRegs.push(newReg)
+                newRegs.push(newReg)
             }
 
         }
+
         return newRegs;
+
     }
-    
+
+    function storedPlates() {
+        return numberPlates;
+    }
+
+    console.log(numberPlates)
     return {
         validatePlate,
         storePlate,
-        filterReg
+        filterReg,
+        storedPlates,
     }
 }
