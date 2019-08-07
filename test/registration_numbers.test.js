@@ -12,7 +12,7 @@ describe(" RegistrationCheck function", function () {
     it("should return error message if registration number is not from any of the towns in the list ", function () {
         var instance = RegistrationCheck();
 
-        assert.equal("Invalid registration number", instance.storePlate("123455"));
+        assert.equal("Invalid registration number", instance.storePlate("Ct66"));
         assert.equal("Invalid registration number", instance.storePlate("C590998"));
         assert.equal("Invalid registration number", instance.storePlate("CKkgg"));
 

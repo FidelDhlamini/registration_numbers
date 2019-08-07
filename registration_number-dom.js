@@ -9,8 +9,7 @@ const instance = RegistrationCheck();
 
 
 function sortRegistrations() {
-    // display.innerHTML = "";
-
+   
     const selectedTown = townSelector.value
     const licenceTyped = userInput.value
 
@@ -19,13 +18,16 @@ function sortRegistrations() {
     var regDiv = document.createElement("div")
     regDiv.classList.add("regStyling")
     var textContent = document.createTextNode(licenceTyped)
+    
+
     regDiv.appendChild(textContent)
     display.appendChild(regDiv)
+    
 
 
 
-    var regArray = instance.storePlate(licenceTyped);
-    console.log(regArray);
+    // var regArray = instance.storePlate(licenceTyped);
+    // console.log(regArray);
 
 
     if (licenceTyped === "") {
@@ -41,12 +43,13 @@ function sortRegistrations() {
 }
 
 function getCapePlates() {
-    var capePlates = instance.filterReg("CA");
+    var capePlates = instance.filterReg();
     var capeDiv = document.createElement("div")
     capeDiv.classList.add("selectedPlates")
     var selected = document.createTextNode(capePlates)
     capeDiv.appendChild(selected)
     display.appendChild(capeDiv);
+     display.innerHTML = "";
 
 }
 // function getStellenboschPlates() {
