@@ -11,7 +11,7 @@ const instance = RegistrationCheck();
 function sortRegistrations() {
    
     const selectedTown = townSelector.value
-    const licenceTyped = userInput.value
+    const licenceTyped = userInput.value.toUpperCase()
 
     instance.storePlate(licenceTyped);
 
@@ -28,7 +28,6 @@ function sortRegistrations() {
 
     // var regArray = instance.storePlate(licenceTyped);
     // console.log(regArray);
-
 
     if (licenceTyped === "") {
         displayError.innerHTML = "Type in a registration number"
@@ -66,6 +65,10 @@ function townOptions() {
     let filteredReg = instance.filterReg(selectedLoc);
     display.innerHTML = filteredReg;
     console.log(filteredReg);
+    
+
+}
+function errorMessage(){
 
 }
 

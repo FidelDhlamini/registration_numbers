@@ -45,7 +45,7 @@ function RegistrationCheck() {
         return numberPlates;
     }
 
-    console.log(numberPlates)
+   // console.log(numberPlates)
     return {
         validatePlate,
         storePlate,
