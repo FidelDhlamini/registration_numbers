@@ -3,9 +3,9 @@ describe(" RegistrationCheck function", function () {
     it("should check if the registration number entered is valid  ", function () {
         var instance = RegistrationCheck();
     
-        assert.equal("Number plate added", instance.storePlate("CA 123"));
-        assert.equal("Number plate added",instance.storePlate("CL 123"));
-        assert.equal("Number plate added", instance.storePlate("CJ 123"));
+        assert.equal("Registration added", instance.storePlate("CA 123"));
+        assert.equal("Registration added", instance.storePlate("CL 123"));
+        assert.equal("Registration added", instance.storePlate("CJ 123"));
 
 
     });

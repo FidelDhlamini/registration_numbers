@@ -1,55 +1,58 @@
 function RegistrationCheck() {
     var numberPlates = [];
-    // var capePlates = []
-    // var stellenboschPLates = []
 
 
     function storePlate(plate) {
+        console.log(plate)
+        if (plate !== "" || plate !== undefined) {
 
-        if (validatePlate(plate)) {
-            numberPlates.push(plate);
-        }
-        return "Number plate added";
-    }
-
-
-    function validatePlate(plate) {
-        let towns = ["CA", "CJ", "CL"];
-        var valid = 0;
-
-        for (i = 0; i < towns.length; i++) {
-
-            if (plate.startsWith(towns[i])) {
-                valid = true;
-            }
-        }
-        return valid;
-    }
-
-    function filterReg(loc) {
-        var newRegs = []
-
-        for (var i = 0; i < numberPlates.length; i++) {
-            var newReg = numberPlates[i];
-            if (newReg.startsWith(loc)) {
-                newRegs.push(newReg)
+            if (!numberPlates.includes(plate)) {
+                numberPlates.push(plate)
+            } else {
+                return "Registration number already exists"
+                // errorMessage('Registration number already exists', true)
             }
 
-        }
+        } else {
 
-        return newRegs;
+            return 'Enter a registration';
 
+
+        } // errorMessage('Enter a valid registration', true)
     }
 
-    function storedPlates() {
+    function showAllRegNumbers() {
         return numberPlates;
     }
 
-   // console.log(numberPlates)
+
+
+    function filterRegNum(townTag) {
+        var filteredPlates = []
+
+        if (townTag === "") {
+            return numberPlates;
+        }
+
+        for (var i = 0; i < numberPlates.length; i++) {
+            var storedPlates = numberPlates[i]
+            if (storedPlates.startsWith(townTag)) {
+                filteredPlates.push(storedPlates)
+            }
+        }
+
+        return filteredPlates;
+    }
+
+    function errorMessage(errorMesssage, isError) {
+        errorMsg.error = errorMesssage;
+        errorMsg.isError = isError;
+
+    }
     return {
-        validatePlate,
         storePlate,
-        filterReg,
-        storedPlates,
+        showAllRegNumbers,
+        filterRegNum
+
     }
 }
