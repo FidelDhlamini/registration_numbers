@@ -6,7 +6,7 @@ function RegistrationCheck() {
         console.log(plate)
         plate = plate.toUpperCase();
         if (plate == "") {
-            message = 'Enter a registration';
+            message = 'Enter a registration number';
             return false;
         }
         if (plate !== "" || plate !== undefined) {
