@@ -1,31 +1,35 @@
 function RegistrationCheck() {
     var numberPlates = [];
-
+    var message = ""
 
     function storePlate(plate) {
         console.log(plate)
+        plate = plate.toUpperCase();
+        if (plate == "") {
+            message = 'Enter a registration';
+            return false;
+        }
         if (plate !== "" || plate !== undefined) {
 
             if (!numberPlates.includes(plate)) {
-                numberPlates.push(plate)
+                numberPlates.push(plate);
+                message = "Registration number added.";
+                return true;
             } else {
-                return "Registration number already exists"
-                // errorMessage('Registration number already exists', true)
+                message = "Registration number already exists";
+                return false;
             }
-
-        } else {
-
-            return 'Enter a registration';
-
-
-        } // errorMessage('Enter a valid registration', true)
+        }
+        return false;
     }
 
     function showAllRegNumbers() {
         return numberPlates;
     }
 
-
+    function getMessage() {
+        return message;
+    }
 
     function filterRegNum(townTag) {
         var filteredPlates = []
@@ -44,15 +48,16 @@ function RegistrationCheck() {
         return filteredPlates;
     }
 
-    function errorMessage(errorMesssage, isError) {
-        errorMsg.error = errorMesssage;
-        errorMsg.isError = isError;
+    // function errorMessage(errorMesssage, isError) {
+    //     errorMsg.error = errorMesssage;
+    //     errorMsg.isError = isError;
 
-    }
+    // }
     return {
         storePlate,
         showAllRegNumbers,
-        filterRegNum
+        filterRegNum,
+        getMessage
 
     }
 }

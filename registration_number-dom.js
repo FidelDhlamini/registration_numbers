@@ -2,89 +2,42 @@ const userInput = document.querySelector(".regInput");
 const townSelector = document.querySelector(".selectTown");
 const addButton = document.querySelector(".addButton");
 const display = document.querySelector(".plates");
+const displaySelectedPlates = document.querySelector(".selectedPlates")
 const displayError = document.querySelector(".error");
 const showBtn = document.querySelector(".showButton")
 const instance = RegistrationCheck();
 
-
-
+function addRegNumber(regnum) {
+    var licenceScreen = document.createElement("li")
+    licenceScreen.textContent = regnum;
+    display.appendChild(licenceScreen);
+}
 function sortRegistrations() {
-
-    const selectedTown = townSelector.value
     const licenceTyped = userInput.value.toUpperCase()
-
-    // instance.storePlate(licenceTyped);
-    console.log(instance.storePlate(licenceTyped));
-
-
-    // var regDiv = document.createElement("div")
-    // regDiv.classList.add("regStyling")
-    // var textContent = document.createTextNode(licenceTyped)
-
-
-    // regDiv.appendChild(textContent)
-    // display.appendChild(regDiv)
-
-
-
-
-    // var regArray = instance.storePlate(licenceTyped);
-    // console.log(regArray);
-
-    // if (licenceTyped === "") {
-    //     displayError.innerHTML = "Type in a registration number"
-    // }
-
-    //create show button 
-    //get value from the dropdown 
-    //put the value in the instance
-    //and append
-
-
+    let instance1 = instance.storePlate(licenceTyped)
+    if (instance1 === true) {
+        // instance.storePlate(licenceTyped);
+        // console.log(instance.storePlate(licenceTyped));
+        addRegNumber(licenceTyped)
+    }
+    displayError.innerHTML = instance.getMessage();
 }
 
-// function getCapePlates() {
-//     var capePlates = instance.filterReg();
-//     var capeDiv = document.createElement("div")
-//     capeDiv.classList.add("selectedPlates")
-//     var selected = document.createTextNode(capePlates)
-//     capeDiv.appendChild(selected)
-//     display.appendChild(capeDiv);
-//     display.innerHTML = "";
-
-// }
-// function getStellenboschPlates() {
-//     var stellenboschPlates = instance.filterReg("CA");
-//     var capeDiv = document.createElement("li")
-//     capeDiv.classList.add("selectedPlates")
-//     var selected = document.createTextNode(stellenboschPlates)
-//     capeDiv.appendChild(selected)
-//     display.appendChild(capeDiv);
-
-// }
 function townOptions() {
     let selectedLoc = townSelector.value
     let filteredReg = instance.filterRegNum(selectedLoc);
-    display.innerHTML = filteredReg;
-    console.log(filteredReg);
+    // remove the existing reg number from the screen
+    display.innerHTML = "";
+    // loop over the list of reg numbers
+    for (var i = 0; i < filteredReg.length; i++) {
+        var currentReg = filteredReg[i];
+        addRegNumber(currentReg)
+    }
+    // add the reg numbers to the screen
 
 
 }
-
-function errorMessage() {
-
-}
-
-
-// window.addEventListener('DOMContentLoaded', (event) => {
-//     // instance.storePlate(licenceTyped);
-//     console.log(instance.storePlate());
-//     console.log(instance.displayError());
-// });
-
-
-
 
 addButton.addEventListener('click', sortRegistrations);
-// showBtn.addEventListener('click', getCapePlates);
+// showBtn.addEventListener('click', townOptions);
 townSelector.addEventListener('click', townOptions);

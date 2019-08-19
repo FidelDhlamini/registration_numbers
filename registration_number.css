@@ -18,6 +18,7 @@ body {
     font-size: 100%;
 }
 
+
 /* ROOT FONT STYLES */
 
 * {
@@ -56,6 +57,22 @@ p {
     font-size: 1.125rem;
     font-weight: 200;
     line-height: 1.8;
+}
+
+li {
+    display: inline-block;
+    background-color: white;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: bold;
+    padding: 1em;
+    border-width: 0.25em;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 1em;
+
 }
 
 .font-light {
@@ -255,7 +272,7 @@ p {
     border-radius: 5px;
 }
 
-.plates {
+/* .plates {
     display: inline-block;
     background-color: white;
     margin-top: 1em;
@@ -268,7 +285,7 @@ p {
     border-color: initial;
     border-image: initial;
     border-radius: 1em;
-}
+} */
 
 @media only screen and (min-width: 60em) {
 
