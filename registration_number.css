@@ -31,6 +31,7 @@ body {
 
 h1 {
     font-size: 2.5rem;
+    color: blue;
 }
 
 h2 {
@@ -257,6 +258,9 @@ li {
     .col-12 {
         width: 96%;
     }
+    .error{
+        color: white;
+    }
 
     .hidden-sm {
         display: block;
@@ -270,6 +274,20 @@ li {
     margin: 5px 5px 5px 5px;
     float: left;
     border-radius: 5px;
+}
+
+body,
+html {
+    height: 100%;
+    background-image: url("reg1.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* .plates {

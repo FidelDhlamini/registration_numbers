@@ -1,14 +1,17 @@
-function RegistrationCheck() {
+function RegistrationCheck(reg) {
     var numberPlates = [];
     var message = ""
 
     function storePlate(plate) {
         console.log(plate)
         plate = plate.toUpperCase();
+
         if (plate == "") {
             message = 'Enter a registration number';
             return false;
         }
+
+
         if (plate !== "" || plate !== undefined) {
 
             if (!numberPlates.includes(plate)) {

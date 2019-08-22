@@ -5,13 +5,26 @@ const display = document.querySelector(".plates");
 const displaySelectedPlates = document.querySelector(".selectedPlates")
 const displayError = document.querySelector(".error");
 const showBtn = document.querySelector(".showButton")
-const instance = RegistrationCheck();
+
+
+
+if (localStorage["reg"]) {
+    var registration = JSON.parse(localStorage.getItem("reg"));
+}
+
+var registration = [];
+const instance = RegistrationCheck(registration);
+
+
+
+
 
 function addRegNumber(regnum) {
     var licenceScreen = document.createElement("li")
     licenceScreen.textContent = regnum;
     display.appendChild(licenceScreen);
 }
+
 function sortRegistrations() {
     const licenceTyped = userInput.value.toUpperCase()
     let instance1 = instance.storePlate(licenceTyped)
@@ -21,6 +34,7 @@ function sortRegistrations() {
         addRegNumber(licenceTyped)
     }
     displayError.innerHTML = instance.getMessage();
+        localStorage.setItem('reg', JSON.stringify(instance.showAllRegNumbers()));
 }
 
 function townOptions() {
