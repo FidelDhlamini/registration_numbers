@@ -29,32 +29,31 @@ describe(" RegistrationCheck function", function () {
 
     it("should return only registration numbers from selected town", function () {
         var instance = RegistrationCheck();
-        instance.storePlate("CA 654,CL 5648,CJ 567")
-        assert.equal(true, instance.storePlate());
-        assert.equal(["CA 654"], instance.filterRegNum("CA"));
+
+        instance.storePlate("CA 654")
+        instance.storePlate("CL 675")
+        instance.storePlate("CJ 675")
+        assert.deepEqual(["CA 654"], instance.filterRegNum("CA"));
+        assert.deepEqual(["CL 675"], instance.filterRegNum("CL"));
+        assert.deepEqual(["CJ 675"], instance.filterRegNum("CJ"));
 
     });
 
+    it("should return only registration numbers from selected town", function () {
+        var instance = RegistrationCheck();
 
-    //  it("should return an error if there no registration number typed in the textbox", function () {
-    //      var instance = RegistrationCheck();
+        instance.storePlate("CA 654")
+        instance.storePlate("CL 675")
+        instance.storePlate("CJ 675")
+        assert.deepEqual(["CA 654"], instance.filterRegNum("CA"));
+        assert.deepEqual(["CL 675"], instance.filterRegNum("CL"));
+        assert.deepEqual(["CJ 675"], instance.filterRegNum("CJ"));
 
-    //      instance.storePlate("CA 654")
-    //      assert.equal(['CA 654'], instance.showAllRegNumbers());
-
-    //  });
-
-    // it("", function () {
-    //     var instance = RegistrationCheck();
-
-    //     assert.equal(valid, instance.validatePlate("CA"));
-    //     assert.equal(valid, instance.validatePlate("CL"));
-    //     assert.equal(valid, instance.validatePlate("CJ"));
-
-
-    // });
-
-
-
-
+    });
 });
+
+
+
+
+
+

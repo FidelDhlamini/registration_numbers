@@ -53,6 +53,9 @@ function RegistrationCheck() {
     //     errorMsg.isError = isError;
 
     // }
+
+
+    console.log(numberPlates)
     return {
         storePlate,
         showAllRegNumbers,
