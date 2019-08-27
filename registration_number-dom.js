@@ -53,5 +53,6 @@ function townOptions() {
 }
 
 addButton.addEventListener('click', sortRegistrations);
+
 // showBtn.addEventListener('click', townOptions);
-townSelector.addEventListener('click', townOptions);
+townSelector.addEventListener('change', townOptions);

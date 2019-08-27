@@ -14,10 +14,17 @@ describe(" RegistrationCheck function", function () {
 
     it("should return an error if there no registration number typed in the textbox", function () {
         var instance = RegistrationCheck();
-        assert.equal(false, instance.storePlate(""));
+         assert.equal(false, instance.storePlate(""));
         assert.equal('Enter a registration number', instance.getMessage());
 
     });
+    it("should return an error if registration number is longer than 10 characters", function () {
+        var instance = RegistrationCheck();
+        assert.equal(false, instance.storePlate("CAu34288u23509"));
+        assert.equal("Registration number cannot exceed 10 characters", instance.getMessage());
+
+    });
+
 
     it("should return a message if registration number has been added before", function () {
         var instance = RegistrationCheck();
