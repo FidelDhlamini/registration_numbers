@@ -1,5 +1,5 @@
 function RegistrationCheck(reg) {
-    var numberPlates = [];
+    var numberPlates = reg || [];
     var message = ""
 
     function storePlate(plate) {
