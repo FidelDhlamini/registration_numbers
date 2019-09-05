@@ -34,7 +34,7 @@ function sortRegistrations() {
         addRegNumber(licenceTyped)
     }
     displayError.innerHTML = instance.getMessage();
-        localStorage.setItem('reg', JSON.stringify(instance.showAllRegNumbers()));
+    localStorage.setItem('reg', JSON.stringify(instance.showAllRegNumbers()));
 }
 
 function townOptions() {
