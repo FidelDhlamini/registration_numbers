@@ -5,18 +5,16 @@ const display = document.querySelector(".plates");
 const displaySelectedPlates = document.querySelector(".selectedPlates")
 const displayError = document.querySelector(".error");
 const showBtn = document.querySelector(".showButton")
+const clearButton = document.querySelector(".clearButton");
 
-
-
-if (localStorage["reg"]) {
-    var registration = JSON.parse(localStorage.getItem("reg"));
-}
 
 var registration = [];
+
+if (localStorage["reg"]) {
+     registration = JSON.parse(localStorage.getItem("reg"));
+}
+ 
 const instance = RegistrationCheck(registration);
-
-
-
 
 
 function addRegNumber(regnum) {
@@ -34,7 +32,18 @@ function sortRegistrations() {
         addRegNumber(licenceTyped)
     }
     displayError.innerHTML = instance.getMessage();
+<<<<<<< HEAD
     localStorage.setItem('reg', JSON.stringify(instance.showAllRegNumbers()));
+=======
+        localStorage.setItem('reg', JSON.stringify(instance.showAllRegNumbers()));
+        
+}
+function clearLocalStorage(){
+    window.location.reload();
+      localStorage.clear();
+      display.innerHTML ="";
+  
+>>>>>>> 1ef4329c5bf16786e044725044902ca29b2b5f96
 }
 
 function townOptions() {
@@ -53,6 +62,9 @@ function townOptions() {
 }
 
 addButton.addEventListener('click', sortRegistrations);
+
+window.addEventListener("load",townOptions)
+clearButton.addEventListener("click",clearLocalStorage)
 
 // showBtn.addEventListener('click', townOptions);
 townSelector.addEventListener('change', townOptions);
