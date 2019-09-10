@@ -32,18 +32,7 @@ function sortRegistrations() {
         addRegNumber(licenceTyped)
     }
     displayError.innerHTML = instance.getMessage();
-<<<<<<< HEAD
     localStorage.setItem('reg', JSON.stringify(instance.showAllRegNumbers()));
-=======
-        localStorage.setItem('reg', JSON.stringify(instance.showAllRegNumbers()));
-        
-}
-function clearLocalStorage(){
-    window.location.reload();
-      localStorage.clear();
-      display.innerHTML ="";
-  
->>>>>>> 1ef4329c5bf16786e044725044902ca29b2b5f96
 }
 
 function townOptions() {
