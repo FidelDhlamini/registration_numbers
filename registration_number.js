@@ -4,18 +4,19 @@ function RegistrationCheck(reg) {
 
     function storePlate(plate) {
         if (plate === "") {
+            console.log(numberPlates)
             message = 'Enter a registration number';
             return false;
         }
         console.log(plate)
         plate = plate.toUpperCase();
-       
+
         if (plate.startsWith("CA") || plate.startsWith("CL") || plate.startsWith("CJ")) {
 
 
 
-           
-            if (plate.length > 10){
+
+            if (plate.length > 10) {
                 message = "Registration number cannot exceed 10 characters"
                 return false;
             }
